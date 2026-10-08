@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shadows of Magic by Sarah McCarthy</title>
+<!-- Landing page version 003 -->
+<meta name="description" content="Nobody becomes a mage before sixteen. Kel is six, alone in the woods, and the forest is doing what she asks. Book one of the complete Shadows of Magic trilogy.">
+<meta name="theme-color" content="#09111a">
+
+<!-- Link preview (when the page is shared) -->
+<meta property="og:type" content="book">
+<meta property="og:title" content="Shadows of Magic by Sarah McCarthy">
+<meta property="og:description" content="Nobody becomes a mage before sixteen. Kel is six, alone in the woods, and the forest is doing what she asks.">
+<meta property="og:image" content="https://sarahmccarthyauthor.com/images/share.jpg">
+<meta property="og:url" content="https://sarahmccarthyauthor.com/som-003/">
+
+<link rel="preload" href="../fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+
+<!-- Meta Pixel, with a consent step for visitors in Europe.
+     Replace 1092836636555755 with the number from Events Manager. -->
+<script>
+(function (f, b) {
+  // Queue for pixel events. Nothing leaves the page until the Meta script loads.
+  if (f.fbq) return;
+  var n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+  if (!f._fbq) f._fbq = n; n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+
+  f.loadMetaPixel = function () {
+    if (f.__pixelLoaded) return; f.__pixelLoaded = true;
+    var t = b.createElement('script'); t.async = true;
+    t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    var s = b.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s);
+  };
+
+  fbq('init', '1092836636555755');
+  fbq('track', 'PageView');
+
+  // Europe check: based on the visitor's device time zone (UK, EU/EEA, Switzerland and neighbors).
+  var tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  f.needsConsent = /^Europe\//.test(tz) ||
+    /^Atlantic\/(Canary|Madeira|Azores|Reykjavik|Faroe)$/.test(tz) ||
+    /^Arctic\/Longyearbyen$/.test(tz);
+
+  var choice = null;
+  try { choice = localStorage.getItem('som-cookie-choice'); } catch (e) {}
+
+  if (!f.needsConsent || choice === 'accepted') f.loadMetaPixel();
+})(window, document);
+</script>
+<!-- End Meta Pixel -->
+</head>
+<body>
+
+<main class="wrap">
+  <p class="kicker">Book One &middot; The Shadows of Magic Trilogy</p>
+
+  <section class="hero">
+    <img class="cover" src="../images/cover.jpg" width="640" height="1024"
+         alt="Shadows of Magic book cover: a lit castle on a cliff under a night sky">
+
+    <div class="copy">
+      <h1>Shadows of Magic</h1>
+      <p class="author">Sarah McCarthy</p>
+
+      <p class="hook">Nobody becomes a mage before sixteen. Kel is six, alone in the woods, and the forest is doing what she asks.</p>
+
+      <!-- Amazon Attribution: "SOM Landing Page 003" -->
+      <div class="ctas">
+        <a class="btn btn-primary" href="https://www.amazon.com/dp/B0759D1WBS?maas=maas_adg_8F29DBDD0F288760A40DAAB1F76CCAEA_afap_abs&amp;ref_=aa_maas&amp;tag=maas" data-track="amazon_top" rel="noopener">Get the Book on Amazon</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tropes" aria-labelledby="tropes-heading">
+    <h2 id="tropes-heading">Inside the Trilogy</h2>
+    <ul>
+      <li>A complete trilogy: all three books are out now</li>
+      <li>Read free with Kindle Unlimited</li>
+      <li>A six-year-old mage, ten years too young to exist</li>
+      <li>A brother and sister who only have each other</li>
+      <li>Magic with a price: every spell casts a shadow</li>
+      <li>A kingdom that hunts its mages</li>
+      <li>Ruined cities from before the Fall, still lit by lamps nobody can put out</li>
+      <li>A ferret who talks back</li>
+    </ul>
+    <div class="bottom-cta">
+      <a class="btn btn-primary" href="https://www.amazon.com/dp/B0759D1WBS?maas=maas_adg_8F29DBDD0F288760A40DAAB1F76CCAEA_afap_abs&amp;ref_=aa_maas&amp;tag=maas" data-track="amazon_bottom" rel="noopener">Get the Book on Amazon</a>
+    </div>
+  </section>
+</main>
+
+
+<div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Cookie choice" hidden>
+  <p>This page uses Meta's pixel, which sets cookies, so I can see whether my ads are working. Is that okay? <a href="../privacy.html">Privacy policy</a></p>
+  <div class="consent-buttons">
+    <button type="button" class="btn btn-secondary" id="consent-decline">No thanks</button>
+    <button type="button" class="btn btn-primary" id="consent-accept">Accept</button>
+  </div>
+</div>
+
+<footer>
+  <nav><a href="../terms.html">Terms</a><a href="../privacy.html">Privacy</a><a href="#" id="cookie-settings" hidden>Cookie choices</a></nav>
+  <p>&copy; 2026 Sarah McCarthy. All rights reserved.</p>
+  <p class="fine">Amazon, Kindle, and Kindle Unlimited are trademarks of Amazon.com, Inc. or its affiliates.</p>
+</footer>
+
+<script>
+// Fires Meta's AddToCart event when either Amazon button is clicked,
+// then sends the reader on to Amazon. If the pixel is blocked, the button still works.
+(function () {
+  var buttons = document.querySelectorAll('a[data-track]');
+  Array.prototype.forEach.call(buttons, function (link) {
+    link.addEventListener('click', function (e) {
+      try {
+        fbq('track', 'AddToCart', {
+          content_name: 'Shadows of Magic',
+          content_category: 'Book',
+          button: link.getAttribute('data-track'),
+          landing_page: '003'
+        });
+      } catch (err) {}
+
+      // Opening in a new tab (ctrl/cmd-click, middle-click): let the browser handle it.
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+
+      // Otherwise pause a moment so the event can send before the page changes.
+      e.preventDefault();
+      var href = link.href;
+      setTimeout(function () { window.location.href = href; }, 300);
+    });
+  });
+})();
+</script>
+
+<script>
+// Cookie banner: only shown to visitors whose device is set to a European time zone.
+(function () {
+  if (!window.needsConsent) return;
+  var banner = document.getElementById('consent');
+  var settings = document.getElementById('cookie-settings');
+  var choice = null;
+  try { choice = localStorage.getItem('som-cookie-choice'); } catch (e) {}
+  function save(v) { try { localStorage.setItem('som-cookie-choice', v); } catch (e) {} }
+  settings.hidden = false;
+  if (!choice) banner.hidden = false;
+  document.getElementById('consent-accept').addEventListener('click', function () {
+    save('accepted'); banner.hidden = true; window.loadMetaPixel();
+  });
+  document.getElementById('consent-decline').addEventListener('click', function () {
+    save('declined'); banner.hidden = true;
+    // If they'd accepted earlier and changed their mind, reload so the pixel is gone.
+    if (window.__pixelLoaded) location.reload();
+  });
+  settings.addEventListener('click', function (e) { e.preventDefault(); banner.hidden = false; });
+})();
+</script>
+</body>
+</html>
