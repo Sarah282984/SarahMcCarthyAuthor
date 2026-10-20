@@ -137,3 +137,10 @@ footer p { margin: 8px 0 0; }
 .bottom-cta { display: grid; justify-items: center; margin-top: 34px; }
 .author + .hook { margin-top: 18px; }
 .ku-note { margin: 2px 0 0; font-style: italic; color: var(--steel); font-size: 17px; }
+
+/* ---------- full description (version 004) ---------- */
+.full-desc { text-align: left; margin: 26px 0 0; }
+.full-desc p { margin: 0 0 14px; }
+.full-desc .series-note { font-style: italic; color: var(--steel); margin-top: 22px; }
+.full-desc + .ctas { margin-top: 10px; }
+.bottom-ctas { margin-top: 26px; }
